@@ -28,4 +28,4 @@ On root directory, if using windows use cmd to execute:
 
 if using linux / mac use terminal to execute:
 
-`./gradlew test`
+`./gradlew test -Dorg.gradle.logging.level=lifecycle`
