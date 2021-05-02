@@ -1,0 +1,23 @@
+plugins {
+  id "application"
+}
+
+test {
+  useJUnitPlatform()
+}
+
+jar {
+  manifest {
+    attributes(
+      "Main-Class": 'adrian.swap.Swapper'
+    )
+  }
+}
+
+task execJarExecutable(type: Exec) {
+    dependsOn jar
+    group = "Execution"
+    standardInput = System.in
+    description = "Run executable jar of Swapper"
+    commandLine "java", "-jar", jar.archiveFile.get()
+}
