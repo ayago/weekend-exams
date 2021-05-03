@@ -1,3 +1,4 @@
 rootProject.name = 'exam'
 include 'swapper'
 include 'right-triangle-printer'
+include 'snake-game'

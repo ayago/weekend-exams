@@ -20,7 +20,7 @@ if using linux / mac use terminal to execute:
 
 `./gradlew runTestOne`
 
-### Test 2: Right Triangle Wrapper
+### Test 2: Right Triangle Printer
 
 On root directory, if using windows use cmd to execute:
 
@@ -29,6 +29,16 @@ On root directory, if using windows use cmd to execute:
 if using linux / mac use terminal to execute:
 
 `./gradlew runTestTwo`
+
+### Test 3: Snake Game
+
+On root directory, if using windows use cmd to execute:
+
+`gradlew.bat runTestThree`
+
+if using linux / mac use terminal to execute:
+
+`./gradlew runTestThree`
 
 ### Run all tests
 

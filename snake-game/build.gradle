@@ -1,0 +1,23 @@
+plugins {
+  id "application"
+}
+
+test {
+  useJUnitPlatform()
+}
+
+jar {
+  manifest {
+    attributes(
+      "Main-Class": 'adrian.snakegame.SnakeGame'
+    )
+  }
+}
+
+task execJarExecutable(type: Exec) {
+    dependsOn jar
+    group = "Execution"
+    standardInput = System.in
+    description = "Run executable jar of Snake Game"
+    commandLine "java", "-jar", jar.archiveFile.get()
+}
