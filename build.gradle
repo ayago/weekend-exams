@@ -20,3 +20,7 @@ subprojects  {
 task runTestOne {
   dependsOn ':swapper:execJarExecutable'
 }
+
+task runTestTwo {
+  dependsOn ':right-triangle-printer:execJarRightTriangle'
+}

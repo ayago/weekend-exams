@@ -20,11 +20,21 @@ if using linux / mac use terminal to execute:
 
 `./gradlew runTestOne`
 
+### Test 2: Right Triangle Wrapper
+
+On root directory, if using windows use cmd to execute:
+
+`gradlew.bat runTestTwo`
+
+if using linux / mac use terminal to execute:
+
+`./gradlew runTestTwo`
+
 ### Run all tests
 
 On root directory, if using windows use cmd to execute:
 
-`gradlew.bat test`
+`gradlew.bat test -Dorg.gradle.logging.level=lifecycle`
 
 if using linux / mac use terminal to execute:
 
