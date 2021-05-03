@@ -2,13 +2,16 @@
 
 ### Before trying out the solutions
 
-On root directory, if using windows use cmd to execute:
+1. You have Java version 8 in your system
+2. There are test library required for this project. Download dependencies required by this project:
 
-`gradlew.bat --refresh-dependencies`
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On root directory, if using windows use cmd to execute:
 
-if using linux / mac use terminal to execute:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`gradlew.bat --refresh-dependencies`
 
-`./gradlew --refresh-dependencies`
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if using linux / mac use terminal to execute:
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`./gradlew --refresh-dependencies` 
 
 ### Test 1: Swapper
 
