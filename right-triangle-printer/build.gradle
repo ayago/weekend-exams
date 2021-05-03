@@ -1,0 +1,23 @@
+plugins {
+  id "application"
+}
+
+test {
+  useJUnitPlatform()
+}
+
+jar {
+  manifest {
+    attributes(
+      "Main-Class": 'adrian.rtriangle.RightTrianglesPrinter'
+    )
+  }
+}
+
+task execJarRightTriangle(type: Exec) {
+    dependsOn jar
+    group = "Execution"
+    standardInput = System.in
+    description = "Run executable jar of Right Triangle Printers"
+    commandLine "java", "-jar", jar.archiveFile.get()
+}
