@@ -3,10 +3,8 @@ package adrian.snakegame.engine;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Function;
@@ -27,10 +25,8 @@ import java.util.HashSet;
 public class DefaultEngine implements GameEngine{
 
   private static final int INITIAL_SNAKE_LENGTH = 8;
-  private final static GameDimensions GAME_DIMENSIONS = new DefaultGameDimensions(15, 15);
+  private static final GameDimensions GAME_DIMENSIONS = new DefaultGameDimensions(15, 15);
   private final ExecutorService stateProcessService = Executors.newSingleThreadExecutor();
-
-  private final Queue<DefaultGameState> stateQueue = new ConcurrentLinkedQueue<>();
 
   private final DisplayProcessor processor;
   private final AtomicReference<Command> commandRef = new AtomicReference<>();
@@ -40,7 +36,6 @@ public class DefaultEngine implements GameEngine{
   public DefaultEngine(Function<GameDimensions, DisplayProcessor> processorFactory){
     this.processor = processorFactory.apply(GAME_DIMENSIONS);
     currentState = createInitialState();
-    stateQueue.add(currentState);
   }
 
   @Override
@@ -187,16 +182,16 @@ public class DefaultEngine implements GameEngine{
     }
 
     DefaultSnake processCommand(Command command){
-      if(Command.STOP.equals(command) || diesOnCommand(command)) {
+      if(Command.STOP.equals(command)) {
         return DEAD_SNAKE;
-      } else if(commandIsReverseOfHead(command)){
-        SnakeNode head = this.nodes.getFirst();
-
-        //continue movement on same direction
-        return executeCommand(head.vector);
+      } 
+      
+      Command effectiveCommand = commandIsReverseOfHead(command) ? this.nodes.getFirst().vector : command;
+      if(diesOnCommand(effectiveCommand)){
+        return DEAD_SNAKE;
       }
 
-      return executeCommand(command);
+      return executeCommand(effectiveCommand);
     }
 
     DefaultSnake continueMovement(){
