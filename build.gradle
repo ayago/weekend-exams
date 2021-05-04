@@ -24,3 +24,7 @@ task runTestOne {
 task runTestTwo {
   dependsOn ':right-triangle-printer:execJarRightTriangle'
 }
+
+task runTestThree {
+  dependsOn ':snake-game:execJarExecutable'
+}
