@@ -1,8 +1,12 @@
 package adrian.snakegame.display;
 
-import adrian.snakegame.engine.GameState;
+import adrian.snakegame.objects.GameState;
 
 public interface DisplayProcessor {
   
-  public void display(GameState state);
+  void displayFrame(GameState state);
+
+  void start();
+
+  void end();
 }
